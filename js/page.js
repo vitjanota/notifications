@@ -1,5 +1,5 @@
-let notifications = new Notifications(true,1000);
-let notifications2 = new Notifications(false);
+let notifications = new Notifications({autohide: true, displayduration: 1000});
+let notifications2 = new Notifications({autohide: false, areawidth: 200, areaspacing: -50});
 
 document.addEventListener("DOMContentLoaded", () => {
     const link = document.getElementById("auto-hide");

@@ -1,7 +1,7 @@
 // ======================== notifications ========================
 // version 0.1
 
-function Notifications(autohide,displayduration) {
+function Notifications(setup) {
     this.notificationsList = {};
     this.contentTemplates = {
         default: `<h1>%%title%%</h1>
@@ -26,12 +26,12 @@ function Notifications(autohide,displayduration) {
             </div>`
     };
     this.setup = {
-        units: 'px',
-        topOffset: 20,
-        areaSpacing: 8,
-        areaWidth: 300,
-        displayDuration: displayduration ? displayduration : 1500,
-        autoHide: autohide
+        units: setup.units ? setup.units : 'px',
+        topOffset: setup.topoffset ? setup.topoffset : 20,
+        areaSpacing: setup.areaspacing ? setup.areaspacing : 8,
+        areaWidth: setup.areawidth ? setup.areawidth : 300,
+        displayDuration: setup.displayduration ? setup.displayduration : 1500,
+        autoHide: setup.autohide !== undefined ? setup.autohide : true
     }
 
     // emit new notification
