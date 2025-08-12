@@ -1,0 +1,43 @@
+/* ==================== general ==================== */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+html {
+  font-family: Open Sans, Arial CE, Helvetica CE, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  background-color: #eeeeee;
+}
+
+/* ==================== page header ==================== */
+header {
+  padding: 10px 40px 10px 40px;
+  display: flex;
+  justify-content: space-between;
+  height: 75px;
+  position: relative;
+  z-index: 10;
+}
+
+/* ==================== page body ==================== */
+#pageBody {
+  margin: 0 40px 0 40px;
+  padding: 20px 60px 40px 40px;
+  border-radius: 12px;
+  min-height: 400px;
+  background-color: #ffffff;
+}
+
+
+/* ==================== page footer ==================== */
+footer {
+  padding: 10px 40px 10px 40px;
+  font-size: 85%;
+  display: flex;
+  justify-content: flex-end;
+}
