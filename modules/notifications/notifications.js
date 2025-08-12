@@ -1,9 +1,9 @@
 // ======================== notifications ========================
 // version 0.1
 
-function Notifications(setup) {
+function Notifications(setup,templates) {
     this.notificationsList = {};
-    this.contentTemplates = {
+    this.predefined = {
         default: `<h1>%%title%%</h1>
             <div data-process="body">
                 <span>%%content%%</span>
@@ -25,6 +25,7 @@ function Notifications(setup) {
                 <a href="%%src%%" data-type="link">%%content%%</a>
             </div>`
     };
+    this.contentTemplates = {...this.predefined,...templates};
     this.setup = {
         units: setup.units ? setup.units : 'px',
         topOffset: setup.topoffset ? setup.topoffset : 20,
