@@ -1,5 +1,5 @@
 let notifications = new Notifications(
-    {autohide: true,displayduration: 1000},
+    {autoHide: true,displayDuration: 1000},
     {error: `<h1>My Error Notification: %%title%%</h1>
             <div data-process="body">
                 <span>%%content%%</span>
@@ -7,7 +7,7 @@ let notifications = new Notifications(
             </div>`}
 );
 let notifications2 = new Notifications(
-    {autohide: false, areawidth: 200}
+    {autoHide: false, areaWidth: 200}
 );
 
 document.addEventListener("DOMContentLoaded", () => {

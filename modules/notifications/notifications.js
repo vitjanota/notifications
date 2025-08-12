@@ -3,6 +3,7 @@
 
 function Notifications(setup,templates) {
     this.notificationsList = {};
+    //predefined processing templates
     this.predefined = {
         default: `<h1>%%title%%</h1>
             <div data-process="body">
@@ -25,16 +26,19 @@ function Notifications(setup,templates) {
                 <a href="%%src%%" data-type="link">%%content%%</a>
             </div>`
     };
-    this.contentTemplates = {...this.predefined,...templates};
-    this.setup = {
-        units: setup.units ? setup.units : 'px',
-        topOffset: setup.topoffset ? setup.topoffset : 20,
-        areaSpacing: setup.areaspacing ? setup.areaspacing : 8,
-        areaWidth: setup.areawidth ? setup.areawidth : 300,
-        displayDuration: setup.displayduration ? setup.displayduration : 1500,
-        autoHide: setup.autohide !== undefined ? setup.autohide : true
+    // default notifications setup
+    this.default = {
+        units: 'px',
+        topOffset: 20,
+        areaSpacing: 8,
+        areaWidth: 300,
+        displayDuration: 1500,
+        autoHide: true
     }
 
+    this.contentTemplates = {...this.predefined,...templates};
+    this.setup = {...this.default,...setup};
+    
     // emit new notification
     this.emit = (msg,type) => {
         const nid = crypto.randomUUID();
