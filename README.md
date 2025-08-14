@@ -22,4 +22,5 @@ This is an example of simple notification engine.
     - hint
 
     which can be extended/redefined during the notifications engine initialization as mentioned above.
+    
     Styling of templates can be defined/altered in `notifications.css` via definitions based on  `div.notificationArea.[template-type]` selector.
