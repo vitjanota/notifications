@@ -11,22 +11,260 @@
 		<link href="modules/notifications/notifications.css" rel="STYLESHEET" type="text/css" media="screen">
 	</head>
 	<body>
-		<div id="pageMain">
-			<header>
-				<h1>Notifications</h1>
-			</header>
-			<div id="pageBody">
-				<article>
-                    <div>This page demonstrates simple notifications engine</div>
-                    <ul>
-                        <li><a href="#" id="auto-hide">auto hide example</a></li>
-                        <li><a href="#" id="on-click-hide">hide on click example</a></li>
-                    </ul>
-                </article>
+        <header>
+            <h1>Notifications</h1>
+        </header>
+        <!-- Example 1 -->
+		<section class="Group">
+			<div class="GroupTitle">
+				<h2>Example 1</h2>
+				<p>
+					Default setup: notifications with auto hide and plain text content
+					<br/><br/>
+					<div class="Button" id="auto-hide"></div>
+				</p>
 			</div>
-			<footer>
-				<div>// Designed by Vít Janota //</div>
-			</footer>
-		</div>
+			<div class="GroupContent">
+				<div class="GroupContentItem">
+					<h3>Initialization</h3>
+					<div>						
+<pre>
+let notifications = new Notifications();
+</pre>
+					</div>
+				</div>
+				<div class="GroupContentItem">
+					<h3>Function call</h3>
+<pre>
+notifications.emit('Plain text example');
+notifications.emit('Long long long long long long
+long long long long long long long long long long
+long long long long long long long long
+plain text example');
+</pre>
+				</div>
+			</div>
+		</section>
+        <!-- Example 2 -->
+		<section class="Group">
+			<div class="GroupTitle">
+				<h2>Example 2</h2>
+				<p>
+					Notifications with on click hide and plain text content
+					<br/><br/>
+					<div class="Button" id="on-click-hide"></div>
+				</p>
+			</div>
+			<div class="GroupContent">
+				<div class="GroupContentItem">
+					<h3>Initialization</h3>
+					<div>						
+<pre>
+let notifications = new Notifications(
+    {
+        utoHide: false
+    }
+);
+</pre>
+					</div>
+				</div>
+				<div class="GroupContentItem">
+					<h3>Function call</h3>
+<pre>
+notifications.emit('Plain text example');
+notifications.emit('Long long long long long long
+long long long long long long long long long long
+long long long long long long long long
+plain text example');
+</pre>
+				</div>
+			</div>
+		</section>
+        <!-- Example 3 -->
+		<section class="Group">
+			<div class="GroupTitle">
+				<h2>Example 3</h2>
+				<p>
+					predefined templates
+					<br/><br/>
+					<div class="Button" id="predefined-templates"></div>
+				</p>
+			</div>
+			<div class="GroupContent">
+				<div class="GroupContentItem">
+					<h3>Initialization</h3>
+					<div>						
+<pre>
+let notifications = new Notifications();
+</pre>
+					</div>
+				</div>
+				<div class="GroupContentItem">
+					<h3>Function call</h3>
+<pre>
+notifications.emit([
+    {
+        title: 'Default structured mesaage example',
+        body: [
+            {content:'This is a '},
+            {
+                src: '#anchor',
+                content: 'link',
+                type: 'link'
+            },
+            {content: '.'}
+        ]
+    }
+]);
+notifications.emit([
+    {
+        title: 'message example',
+        body: [
+            {content:'This is a '},
+            {
+                src: '#anchor',
+                content: 'link',
+                type: 'link'
+            },
+            {content: '.'}
+        ]
+    }
+],'error');
+notifications.emit([
+    {
+        title: 'message example',
+        body: [
+            {content:'This is a '},
+            {
+                src: '#anchor',
+                content: 'link',
+                type: 'link'
+            },
+            {content: '.'}
+        ]
+    }
+],'warning');
+notifications.emit([
+    {
+        title: 'message example',
+        body: [
+            {content:'This is a '},
+            {
+                src: '#anchor',
+                content: 'link',
+                type: 'link'
+            },
+            {content: '.'}
+        ]
+    }
+],'hint');
+</pre>
+				</div>
+			</div>
+		</section>
+        <!-- Example 4 -->
+		<section class="Group">
+			<div class="GroupTitle">
+				<h2>Example 4</h2>
+				<p>
+					custom templates
+					<br/><br/>
+					<div class="Button" id="custom-templates"></div>
+				</p>
+			</div>
+			<div class="GroupContent">
+				<div class="GroupContentItem">
+					<h3>Initialization</h3>
+					<div>						
+<pre>
+let notifications3 = new Notifications(
+    {},
+    {
+        error: `&lt;h1&gt;My Error Notification: %%title%%&lt;/h1&gt;
+        &lt;div data-process="body"&gt;
+            &lt;span&gt;%%content%%&lt;/span&gt;
+            &lt;a href="%%src%%" data-type="link"&gt;%%content%%&lt;/a&gt;
+        &lt;/div&gt;`,
+        mytest: `&lt;h1&gt;%%header%%&lt;/h1&gt;
+        &lt;ul data-process="list"&gt;
+            &lt;li&gt;%%content%%&lt;/li&gt;
+        &lt;/ul&gt;`
+    }
+);
+</pre>
+					</div>
+				</div>
+				<div class="GroupContentItem">
+					<h3>Function call</h3>
+<pre>
+notifications.emit([
+    {
+        title: 'message example',
+        body: [
+            {content:'This is a '},
+            {
+                src: '#anchor',
+                content: 'link',
+                type: 'link'
+            },
+            {content: '.'}
+        ]
+    }
+],'error');
+notifications.emit([
+    {
+        header: 'my custom message',
+        list: [
+            {content:'item 1'},
+            {content: 'item 2'}
+        ]
+    }
+],'mytest');
+</pre>
+				</div>
+			</div>
+		</section>
+        <!-- Example 5 -->
+		<section class="Group">
+			<div class="GroupTitle">
+				<h2>Example 5</h2>
+				<p>
+					customized configuration
+					<br/><br/>
+					<div class="Button" id="custom-setup"></div>
+				</p>
+			</div>
+			<div class="GroupContent">
+				<div class="GroupContentItem">
+					<h3>Initialization</h3>
+					<div>						
+<pre>
+let notifications4 = new Notifications(
+    {
+        displayDuration: 3000,
+        areaWidth: 150,
+        topOffset:200,
+        areaSpacing:-10
+    }
+);
+
+</pre>
+					</div>
+				</div>
+				<div class="GroupContentItem">
+					<h3>Function call</h3>
+<pre>
+notifications.emit('Plain text example');
+notifications.emit('Long long long long long long
+long long long long long long long long long long
+long long long long long long long long
+plain text example');
+</pre>
+				</div>
+			</div>
+		</section>
+        <footer>
+            <div>// Designed by Vít Janota //</div>
+        </footer>
 	</body>
 </html>

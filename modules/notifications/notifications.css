@@ -59,3 +59,17 @@ div.notificationArea.hint > h1 {
 div.notificationArea.hint a {
     color: #00B509;
 }
+
+/* ==================== custom templates section ==================== */
+/* ==================== mytest ==================== */
+div.notificationArea.mytest {
+    background-color: rgba(255,211,249,0.85);
+}
+
+div.notificationArea.mytest > h1 {
+    font-size: 150%;
+}
+
+div.notificationArea.mytest li {
+    color: #670059;
+}
