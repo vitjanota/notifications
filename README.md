@@ -13,7 +13,7 @@ This is an example of simple notification engine.
     - `displayDuration`: positive integer [how long should be notification displayed in miliseconds, default is _1500_]
     - `autoHide`: boolean [keep notification displayed or hide it automatically, default is _true_]
 
-    and `templates` is an object defining custom processing templates (about the usage see further).
+    and `templates` is an object defining custom processing templates as `template-identifier: template code` pairs (about the usage see further).
 
 3. evoke functionality like `notifications.emit(message,template)` where `message` is either a plain string displayed 'as is' or a structured object which can be via `template` attribute (or _default_ value if not defined) bound to and displayed by (via templating factory) any defined processing template. There are four predefined templates (in `notifications.js`)
     - default
@@ -22,5 +22,5 @@ This is an example of simple notification engine.
     - hint
 
     which can be extended/redefined during the notifications engine initialization as mentioned above.
-    
-    Styling of templates can be defined/altered in `notifications.css` via definitions based on  `div.notificationArea.[template-type]` selector.
+
+    Styling of templates can be defined/altered in `notifications.css` via definitions based on  `div.notificationArea.[template-identifier]` selector.
